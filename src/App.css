@@ -1,0 +1,104 @@
+/* General settings */
+body {
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f4f4f9; /* Light background color */
+  color: #333; /* Text color */
+}
+
+main {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 800px;
+  background-color: #ffffff; /* White background for the main content */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a card effect */
+  border-radius: 8px; /* Rounded corners */
+}
+
+/* Buttons */
+button {
+  background-color: #007bff; /* Bright blue background */
+  color: white; /* White text */
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Headers */
+header {
+  background-color: #004d99; /* Dark blue background */
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header .logo-image {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+header h1 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+/* Form fields */
+label {
+  display: block;
+  margin: 15px 0 5px;
+  font-weight: bold;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+input:focus,
+select:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Form section */
+form {
+  margin-top: 20px;
+}
+
+/* Navigation buttons */
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navigation-buttons button {
+  width: 48%;
+}
+
+pre {
+  background-color: #f8f9fa; /* Light gray for preview */
+  padding: 15px;
+  border-radius: 5px;
+  overflow-x: auto;
+  font-size: 14px;
+}
