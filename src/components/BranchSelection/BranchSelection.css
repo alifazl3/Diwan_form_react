@@ -1,0 +1,45 @@
+.branch-selection {
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.branch-selection h2 {
+    font-size: 1.8rem;
+    color: #004d99;
+    margin-bottom: 20px;
+}
+
+.branch-options {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.branch-options label {
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.branch-options input {
+    margin-right: 10px;
+}
+
+.btn-submit {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #0056b3;
+}
