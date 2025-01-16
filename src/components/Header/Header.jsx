@@ -12,10 +12,10 @@ const Header = () => {
     return (
         <header className="header">
             <div className="header-logo">
-                <img src="/logo.png" alt="Logo" />
+                <img src="https://diwan-marburg.de/wp-content/uploads/2023/05/logo_dark.png" alt="Logo" />
             </div>
             <div className="header-title">
-                <h1>{t("welcome")}</h1>
+                <h1>Diwan-Marburg Akademi</h1>
             </div>
             <div className="header-lang">
                 <select
