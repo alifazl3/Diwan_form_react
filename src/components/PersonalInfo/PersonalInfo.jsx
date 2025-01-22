@@ -43,7 +43,7 @@ const PersonalInfo = ({ onNext, onPrev }) => {
     };
 
     return (
-        <div className="personal-info">
+        <div className="question-box personal-info">
             <h2>{t("title")}</h2>
             <form>
                 <label>
