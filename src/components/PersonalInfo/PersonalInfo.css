@@ -21,12 +21,13 @@ form label {
 }
 
 form input {
-    width: 100%;
+    width: 85%;
     padding: 10px;
     margin-top: 5px;
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 16px;
+    display: block;
 }
 
 form input:focus {

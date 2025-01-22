@@ -3,10 +3,10 @@ import { useTranslation } from "react-i18next";
 import translations from "./translations";
 import "./PersonalInfo.css";
 
-const PersonalInfo = ({ onNext, onPrev }) => {
+const PersonalInfo = ({ onNext }) => {
     const { t, i18n } = useTranslation("PersonalInfo");
 
-    const [translationsLoaded, setTranslationsLoaded] = useState(false); // Track if translations are loaded
+    const [translationsLoaded, setTranslationsLoaded] = useState(false);
     const [personalInfo, setPersonalInfo] = useState({
         name: "",
         age: "",
@@ -20,11 +20,11 @@ const PersonalInfo = ({ onNext, onPrev }) => {
                 i18n.addResourceBundle(lang, "PersonalInfo", translations[lang], true, true);
             }
         });
-        setTranslationsLoaded(true); // Mark translations as loaded
+        setTranslationsLoaded(true);
     }, [i18n]);
 
     if (!translationsLoaded) {
-        return <div>Loading translations...</div>; // Show loader until translations are loaded
+        return <div>Loading translations...</div>;
     }
 
     const handleChange = (e) => {
@@ -36,7 +36,7 @@ const PersonalInfo = ({ onNext, onPrev }) => {
         const { name, age, email, phone } = personalInfo;
 
         if (name && age && email && phone) {
-            onNext(personalInfo);
+            onNext(personalInfo, "Confirmation"); // Move to the next step (e.g., Confirmation)
         } else {
             alert(t("error.fillAllFields"));
         }
@@ -88,11 +88,8 @@ const PersonalInfo = ({ onNext, onPrev }) => {
                 </label>
             </form>
             <div className="buttons">
-                <button onClick={onPrev} className="btn-back">
-                    {t("buttons.back")}
-                </button>
                 <button onClick={handleSubmit} className="btn-next">
-                    {t("buttons.next")}
+                    {t("buttons.submit")}
                 </button>
             </div>
         </div>

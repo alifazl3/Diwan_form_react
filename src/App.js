@@ -5,13 +5,12 @@ import RegistrationType from "./components/RegistrationType/RegistrationType";
 import ClassReservation from "./components/ClassReservation/ClassReservation";
 import ExamSelection from "./components/ExamSelection/ExamSelection";
 import "./App.css";
+import PersonalInfo from "./components/PersonalInfo/PersonalInfo";
+import ReviewAndSubmit from "./components/ReviewAndSubmit/ReviewAndSubmit";
 
 const App = () => {
     const [step, setStep] = useState("BranchSelection");
-    const [formData, setFormData] = useState({
-        branch: "",
-        registrationType: "",
-    });
+    const [formData, setFormData] = useState({});
 
 
     const defaultSteps = {
@@ -32,8 +31,10 @@ const App = () => {
 
                 {step === "BranchSelection" && <BranchSelection onNext={handleNext}/>}
                 {step === "RegistrationType" && <RegistrationType onNext={handleNext}/>}
-                {step === "ClassReservation" && <ClassReservation/>}
-                {step === "ExamSelection" && <ExamSelection/>}
+                {step === "ClassReservation" && <ClassReservation onNext={handleNext} />}
+                {step === "ExamSelection" && <ExamSelection  onNext={handleNext} />}
+                {step === "PersonalInfo" && <PersonalInfo onNext={handleNext} />}
+                {step === "Confirmation" && <ReviewAndSubmit formData={formData} onNext={handleNext} />}
             </main>
         </div>
     );

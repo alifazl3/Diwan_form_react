@@ -3,10 +3,8 @@ import {useTranslation} from "react-i18next";
 import translations from "./translations";
 import "./ClassReservation.css";
 
-const ClassReservation = ({
-                              onNext, onPrev
-                          }) => {
-    const {t, i18n} = useTranslation("BranchSelection");
+const ClassReservation = ({onNext}) => {
+    const {t, i18n} = useTranslation("ClassReservation");
     const [translationsLoaded, setTranslationsLoaded] = useState(false);
     const [selectedClass, setSelectedClass] = useState("");
 
@@ -23,11 +21,9 @@ const ClassReservation = ({
         return <div>Loading translations...</div>;
     }
 
-    const handleSubmit = () => {
-        if (selectedClass) {
-            onNext({selectedClass});
-        } else {
-            alert(t("error.selectClass"));
+    const handleSubmit = (e) => {
+        if (e){
+            onNext({ registrationType:  e}, "PersonalInfo");
         }
     };
 
@@ -40,7 +36,7 @@ const ClassReservation = ({
                         type="radio"
                         name="class"
                         value="Beginner"
-                        onChange={(e) => setSelectedClass(e.target.value)}
+                        onChange={(e) => handleSubmit(e.target.value)}
                     />
                     {t("classes.beginner")}
                 </label>
@@ -49,7 +45,7 @@ const ClassReservation = ({
                         type="radio"
                         name="class"
                         value="Intermediate"
-                        onChange={(e) => setSelectedClass(e.target.value)}
+                        onChange={(e) => handleSubmit(e.target.value)}
                     />
                     {t("classes.intermediate")}
                 </label>
@@ -62,14 +58,6 @@ const ClassReservation = ({
                     />
                     {t("classes.advanced")}
                 </label>
-            </div>
-            <div className="buttons">
-                <button onClick={onPrev} className="btn-back">
-                    {t("buttons.back")}
-                </button>
-                <button onClick={handleSubmit} className="btn-next">
-                    {t("buttons.next")}
-                </button>
             </div>
         </div>
     );

@@ -5,7 +5,6 @@ import "./RegistrationType.css";
 
 const RegistrationType = ({ onNext }) => {
     const { t, i18n } = useTranslation("RegistrationType");
-
     const [translationsLoaded, setTranslationsLoaded] = useState(false);
 
     useEffect(() => {
