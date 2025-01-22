@@ -1,17 +1,30 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import { useTranslation } from "react-i18next";
+import translations from "./translations";
+
 import "./ExamSelection.css";
 
 const ExamSelection = ({ onNext, onPrev }) => {
-    const { t } = useTranslation("ExamSelection");
+    const {t, i18n} = useTranslation("ExamSelection");
+    const [translationsLoaded, setTranslationsLoaded] = useState(false);
 
-    const [selectedExam, setSelectedExam] = useState("");
+    useEffect(() => {
+        Object.keys(translations).forEach((lang) => {
+            if (!i18n.hasResourceBundle(lang, "ExamSelection")) {
+                i18n.addResourceBundle(lang, "ExamSelection", translations[lang], true, true);
+            }
+        });
+        setTranslationsLoaded(true);
+    }, [i18n]);
 
-    const handleSubmit = () => {
-        if (selectedExam) {
-            onNext({ selectedExam });
-        } else {
-            alert(t("error.selectExam"));
+
+    if (!translationsLoaded) {
+        return <div>Loading translations...</div>;
+    }
+
+    const handleSubmit = (e) => {
+        if (e) {
+            onNext({ examType:  e}, "PersonalInfo");
         }
     };
 
@@ -24,7 +37,7 @@ const ExamSelection = ({ onNext, onPrev }) => {
                         type="radio"
                         name="exam"
                         value="TOEFL"
-                        onChange={(e) => setSelectedExam(e.target.value)}
+                        onChange={(e) => handleSubmit(e.target.value)}
                     />
                     {t("exams.toefl")}
                 </label>
@@ -33,7 +46,7 @@ const ExamSelection = ({ onNext, onPrev }) => {
                         type="radio"
                         name="exam"
                         value="IELTS"
-                        onChange={(e) => setSelectedExam(e.target.value)}
+                        onChange={(e) => handleSubmit(e.target.value)}
                     />
                     {t("exams.ielts")}
                 </label>
@@ -42,18 +55,10 @@ const ExamSelection = ({ onNext, onPrev }) => {
                         type="radio"
                         name="exam"
                         value="Cambridge"
-                        onChange={(e) => setSelectedExam(e.target.value)}
+                        onChange={(e) => handleSubmit(e.target.value)}
                     />
                     {t("exams.cambridge")}
                 </label>
-            </div>
-            <div className="buttons">
-                <button onClick={onPrev} className="btn-back">
-                    {t("buttons.back")}
-                </button>
-                <button onClick={handleSubmit} className="btn-next">
-                    {t("buttons.next")}
-                </button>
             </div>
         </div>
     );

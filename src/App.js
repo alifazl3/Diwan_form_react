@@ -28,7 +28,6 @@ const App = () => {
         <div className="app">
             <Header/>
             <main>
-
                 {step === "BranchSelection" && <BranchSelection onNext={handleNext}/>}
                 {step === "RegistrationType" && <RegistrationType onNext={handleNext}/>}
                 {step === "ClassReservation" && <ClassReservation onNext={handleNext} />}
